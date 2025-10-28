@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuuMSsS2PkkkIkS0tYsB8IY1EelKiH95tyY4YfVRPALRzJJr7VrJ(CXDB/sb/eEEByJDtcYj-AJbH3JFV5U5JuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body class="logreg">
+    <div class="container">
+        <h1 class="text-center">Welcome Back!</h1>
+        <p class="text-center"><i>Smart shopping starts right here.</i></p>
+        <form action="/auth/login" method="POST">
+            <div class="mb-3">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+                </div>
+            <div class="mb-3">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-logreg form-control-lg">Login</button>
+            <p class="text-center">
+            Dont have account? <a href="/auth/register">Register</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

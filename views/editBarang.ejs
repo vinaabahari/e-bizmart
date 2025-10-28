@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Edit Barang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Form Edit Barang</h1>
+        <form action="/barang/edit/<%= barang._id %>" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="namaBarang" class="form-label">Nama Barang</label>
+                <input type="text" class="form-control" id="namaBarang" name="nama_barang" placeholder="<%= barang.nama_barang %>">
+            </div>
+            <div class="mb-3">
+                <label for="id_kategori" class="form-label">Kategori</label>
+                <select class="form-control" id="id_kategori" name="id_kategori">
+                    <% kategori.forEach(k => { %>
+                        <option value="<%= k._id %>" <%= k._id.toString() === barang.id_kategori.toString() ? 'selected' : '' %>><%= k.nama_kategori %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="hargaBarang" class="form-label">Harga Barang</label>
+                <input type="number" class="form-control" id="hargaBarang" name="harga_barang" placeholder="<%= barang.harga_barang %>">
+            </div>
+            <div class="mb-3">
+                <label for="foto" class="form-label">Gambar Barang</label><br>
+                <img src="/img/<%= barang.gambar_barang %>" alt="Foto Barang" width="150" class="mb-2">
+                <input type="file" class="form-control" id="foto" name="foto"><br>
+            </div>
+            <div class="mb-3">
+                <label for="keterangan" class="form-label">Keterangan Barang</label>
+                <textarea class="form-control" id="keterangan" name="keterangan_barang" rows="3" placeholder="<%= barang.keterangan_barang %>"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="stok" class="form-label">Stok Barang</label>
+                <input type="number" class="form-control" id="stok" name="stok_barang" placeholder="<%= barang.stok_barang %>">
+            </div>
+            <div class="mb-3">
+                <label for="exp" class="form-label">Expired Date</label>
+                <input type="date" class="form-control" id="exp" name="exp_barang" value="<%= barang.exp_barang.toISOString().slice(0, 10) %>">
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status Ketersediaan</label>
+                <select class="form-control" id="status" name="status_ketersediaan">
+                    <option value="<%= barang.status_ketersediaan %>" disabled selected><%= barang.status_ketersediaan %></option>
+                    <option value="Tersedia">Tersedia</option>
+                    <option value="Habis">Habis</option>
+                    <option value="Pre-Order">Pre-Order</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-custom form-control form-control-lg">Edit</button>
+        </form>
+    </div>
+</body>
+</html>

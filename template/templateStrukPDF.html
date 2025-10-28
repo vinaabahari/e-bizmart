@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struk Pembelian</title>
+    <style>
+    body {
+        font-family: monospace;
+        font-size: 22px;
+        margin: 10px;
+        line-height: 1.8;
+        white-space: pre-line;
+    }
+
+    .struk {
+        max-width: 300px;
+        margin: auto;
+        text-align: left;
+        color: #000;
+    }
+
+    .center {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="struk">
+        <div class="center">STRUK PEMBELIAN</div>
+
+        Nama Pembeli: {{barang.nama_pembeli}}
+        Tanggal: {{barang.tanggal_pembelian}}
+        Metode Pembayaran: {{barang.metode_pembayaran}}
+
+        Nama Barang: {{barang.nama_barang}}
+        Jumlah: {{barang.jumlah}}
+        Harga Satuan: Rp {{barang.harga}}
+
+        total: Rp {{barang.total}}
+        -----------
+        Terima Kasih
+        </div>
+    </body>
+</html>

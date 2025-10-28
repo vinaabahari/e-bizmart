@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Global */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* LOGIN & REGISTER */
+.img-logreg {
+  margin: 15px auto;
+  display: block;
+}
+
+body.logreg {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at 30% 30%, #D5DEEF, #8AAEE0 60%, #395886);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input.form-control {
+  border-radius: 50px;
+  border: 2px solid #B1C9EF;
+}
+
+.logreg .container {
+    background-color: #F0F3FA;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(99, 142, 203, 0.3);
+    max-width: 500px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container h1 {
+    font-weight: 600;
+    margin: 15px;
+    text-align: center;
+    color: #395886;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #395886;
+}
+
+.form-control {
+    border-radius: 8px;
+    height: 45px;
+    font-size: 15px;
+}
+
+.btn-logreg,
+.btn-primary {
+    color: white;
+    display: block;
+    margin: 20px auto;
+    background-color: #638ECB;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-logreg:hover,
+.btn-primary:hover {
+    background-color: #395886;
+    color: #F0F3FA;
+}
+
+p.text-center a {
+    text-decoration: none;
+    color: #638ECB;
+    font-weight: 500;
+}
+
+p.text-center a:hover {
+    text-decoration: underline;
+    color: #395886;
+}
+
+.btn-custom {
+  background-color: #8AAEE0;      
+  color: #F0F3FA;                 
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.btn-custom:hover {
+  background-color: #638ECB;     
+  color: #F0F3FA;
+}
+
+
+.btn-custom-outline {
+  background-color: transparent;
+  border: 1px solid #8AAEE0;
+  color: #395886;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.btn-custom-outline:hover {
+  background-color: #8AAEE0;
+  color: #F0F3FA;
+  border-color: #638ECB;
+}
+
+
+
+/* Optional: Adjust spacing on smaller screens */
+@media (max-width: 500px) {
+    .container {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+}

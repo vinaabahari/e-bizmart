@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <%- include('layout/navbar') %>
+
+    <div class="container mt-5">
+        <% if (keranjang.length > 0) { %>
+            <table class="table table-bordered align-middle text-center">
+                <thead class="table-success">
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Harga</th>
+                        <th>Jumlah</th>
+                        <th>Subtotal</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% keranjang.forEach((item) => { %>
+                        <tr>
+                            <td><%= item.id_barang.nama_barang %></td>
+                            <td>Rp <%= item.id_barang.harga_barang.toLocaleString('id-ID') %></td>
+                            <td>
+                                <div class="d-flex justify-content-center align-items-center gap-2">
+                                    <form action="/keranjang/kurangi-jumlah/<%= item._id %>" method="GET" style="display:inline;">
+                                        <button class="btn btn-sm btn-outline-secondary" <%= item.jumlah <= 1 ? 'disabled' : '' %>>-</button>
+                                    </form>
+                                    <span><%= item.jumlah %></span>
+                                    <form action="/keranjang/tambah-jumlah/<%= item._id %>" method="GET" style="display:inline;">
+                                        <button class="btn btn-sm btn-outline-secondary">+</button>
+                                    </form>
+                                </div>
+                            </td>
+                            <td>Rp <%= (item.id_barang.harga_barang * item.jumlah).toLocaleString('id-ID') %></td>
+                            <td>
+                                <form action="/keranjang/delete/<%= item._id %>" method="GET">
+                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+            <div class="text-end">
+                <button type="button" class="btn-custom w-100" data-bs-toggle="modal" data-bs-target="#modalPembayaran">
+                    Beli
+                </button>
+            </div>
+
+            <div class="modal fade" id="modalPembayaran" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form action="/keranjang/beli" method="POST" class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Pilih Metode Pembayaran</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <select class="form-select" name="metode_pembayaran" required>
+                                <option value="Cash">Cash</option>
+                                <option value="Transfer">Transfer</option>
+                                <option value="Kredit">Kredit</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Lanjutkan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="alert alert-info text-center">Keranjang kamu kosong.</div>
+        <% } %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

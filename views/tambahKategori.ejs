@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tambah Kategori</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Form Tambah Kategori</h1>
+        <form action="/kategori/tambah" method="POST">
+            <div class="mb-3">
+                <label for="namaKategori" class="form-label">Nama Kategori</label>
+                <input type="text" id="namaKategori" name="namaKategori" class="form-control" required>
+            </div>
+            <button type="submit" class="btn-custom form-control form-control-lg">Tambah</button>
+        </form>
+    </div>
+</body>
+</html>

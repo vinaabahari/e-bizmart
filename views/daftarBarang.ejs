@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Barang</title>
+    <!-- Bootstrap Css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <%- include('./layout/navbar') %>
+    <div class="container">
+      <div class="row my-4">
+        <div class="col-lg-12">
+          <div class="table-responsive">
+            <table
+              class="table table-bordered align-middle text-center"
+            >
+              <thead class="table-success">
+                <tr>
+                  <th>Foto Barang</th>
+                  <th>Nama Produk</th>
+                  <th>Harga</th>
+                  <th>Keterangan</th>
+                  <th>Stok</th>
+                  <th>Expired</th>
+                  <th>Status Ketersediaan</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% barang.forEach(function(row, index) { %>
+                <tr class="align-middle">
+                  <td>
+                    <img
+                      src="/img/<%= row.gambar_barang %>"
+                      alt="Foto Buku"
+                      width="100"
+                    />
+                  </td>
+                  <td><%= row.nama_barang%></td>
+                  <td><%= row.harga_barang%></td>
+                  <td><%= row.keterangan_barang%></td>
+                  <td><%= row.stok_barang%></td>
+                  <td>
+                    <%= new Date(row.exp_barang).toLocaleDateString('id-ID', {
+                    day: '2-digit', month: 'long', year: 'numeric' }) %>
+                  </td>
+                  <td><%= row.status_ketersediaan%></td>
+                  <td>
+                    <a
+                      href="/barang/edit/<%= row.id %>"
+                      class="text-success"
+                    >
+                      <i class="fa-solid fa-edit fa-lg text-dark"></i>
+                    </a>
+                  </td>
+                  <th>
+                    <a
+                      href="/barang/delete/<%= row.id %>"
+                      class="text-success"
+                    >
+                      <i class="fa-solid fa-trash fa-lg text-dark"></i>
+                    </a>
+                  </th>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-end">
+            <a href="/barang/tambah" class="btn-custom mt-3"
+              >+ Tambah Barang</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
